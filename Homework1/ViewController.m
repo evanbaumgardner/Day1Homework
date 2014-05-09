@@ -10,40 +10,12 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
+@property (weak, nonatomic) IBOutlet UISlider *mySlider;
 
 @end
 
 @implementation ViewController
-
-- (IBAction)buttonPressed:(id)sender
-{
-    
-    NSLog(@"Hello World");
-    
-}
-
--(IBAction)switchFlip:(id)sender
-
-{
-    NSLog(@"Hello Laverne");
-    
-}
-
-- (IBAction)sliderChanged:(id)sender
-{
-    UISlider *slider = (UISlider *)sender;
-    float val = slider.value;
-  //  self.myLabel.text = [NSString stringWithFormat:@"%f",val];
-   // NSLog(@"%f", val);
-    if(val > .5)
-    {
-    
-        NSLog(@"%f", val);
-        
-    }
-}
-
-
 
 
 - (void)viewDidLoad
@@ -57,5 +29,44 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)buttonPressed:(id)sender
+{
+    
+    NSLog(@"Hello World");
+    
+    UIColor *greenColor = [UIColor greenColor];
+    
+    self.view.backgroundColor = greenColor;
+    
+
+}
+
+-(IBAction)switchFlip:(id)sender
+
+{
+    NSLog(@"Hello Laverne");
+    
+    self.view.backgroundColor = [UIColor redColor];
+    
+}
+
+- (IBAction)sliderChanged:(id)sender
+{
+    float val = self.mySlider.value;
+    self.myLabel.text = [NSString stringWithFormat:@"%f",val];
+    //     NSLog(@"%f", val);
+    if(val > .5)
+    {
+        UIColor *yellowColor = [UIColor yellowColor];
+        self.view.backgroundColor = yellowColor;
+        NSLog(@"%f", val);
+    
+    }
+}
+
+
+
+
 
 @end
